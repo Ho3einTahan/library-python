@@ -3,7 +3,6 @@
 #### To Clone This Repository Run The Following Command :
 ``` bash
 git clone https://github.com/Ho3einTahan/python-library-json
-cd Fasih_BarcodeScanner_Api
 ```
 
 ## Thanks For Watching
