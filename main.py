@@ -3,19 +3,20 @@ import os
 import time
 
 pathDir = './files'
-pathFile = './files/data.json'
+pathFile = pathDir+'/data.json'
 
-if not os.path.isdir(pathDir):
-    os.mkdir(pathDir)
+os.makedirs(pathDir, exist_ok=True)
+
 
 if not os.path.isfile(pathFile):
-    with open(pathFile, 'w') as f:
-        f.write('{"books": []}')
+    with open(pathFile, 'w') as file:
+        json.dump({"books": []}, file, indent=4)
 
 def addBook(bookName, author, addDate):
+    
     with open(pathFile, 'r+') as file:
         content = file.read()
-        
+
         if not content.strip():
             data = {"books": []}
         else:
@@ -30,9 +31,10 @@ def addBook(bookName, author, addDate):
         file.seek(0)
         file.truncate()
         json.dump(data, file, indent=4)
+        file.close()
 
 addBook("Python Basics", "Hossein Tahan",time.time())
-    
+ 
     
 # def removeBook():
 
